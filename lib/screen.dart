@@ -7,7 +7,29 @@ class FacebookScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: Scaffold(appBar: customAppbar()),
+      home: Scaffold(appBar: customAppbar(),
+      body: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Row(
+            children: [
+              Image.asset("assets/icons/homeIcon.png"),
+              Image.asset("assets/icons/shortsIcon.png"),
+              Image.asset("assets/icons/friendsIcon.png"),
+              Image.asset("assets/icons/storeIcon.png"),
+              Icon(Icons.notifications),
+             CircleAvatar(
+                 backgroundImage: AssetImage("assets/icons/profileIcon.jpg"),
+             ),
+            ],
+          )
+
+        ],
+      ),
+
+
+      ),
+
     );
   }
 }
