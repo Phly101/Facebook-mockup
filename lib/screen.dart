@@ -32,6 +32,37 @@ class FacebookScreen extends StatelessWidget {
               color: Colors.grey.withValues(alpha: 0.6),
             ),
           ),
+          Padding(
+            padding: const EdgeInsets.all(10.0),
+            child: Row(
+              children: [
+                CircleAvatar(
+                  radius: 25,
+                  backgroundImage: AssetImage("assets/icons/profileIcon.jpg"),
+                ),
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Container(
+                    width: 280,
+                    height: 30,
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(25),
+                      border: Border.all(color: Colors.grey.withValues(alpha: 0.6))
+                    ),
+                    child: Padding(
+                      padding: const EdgeInsets.only(top: 3.0, left: 15.0),
+                      child: Text("What's on your mind?"),
+                    ),
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.all(10.0),
+                  child: Image.asset("assets/icons/imageIcon.png",scale: 3,),
+                ),
+              ],
+            ),
+          )
+
 
 
         ],
