@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:practice_project/posts.dart';
 import 'package:practice_project/stories_widgets.dart';
 
 class FacebookScreen extends StatelessWidget {
@@ -78,7 +79,7 @@ class FacebookScreen extends StatelessWidget {
                 ),
                 Container(height: 4, color: Colors.grey.withValues(alpha: 0.6)),
                 SizedBox(
-                  height: 300,
+                  height: 240,
                   child: ListView.separated(
                     itemCount: 10,
                     scrollDirection: Axis.horizontal,
@@ -99,6 +100,9 @@ class FacebookScreen extends StatelessWidget {
                 SizedBox(
                   height: 15,
                 ),
+                Container(height: 4, color: Colors.grey.withValues(alpha: 0.6)),
+                Posts(comments: "45 comments", reacts: "6",time: "45m",name: "Yousef Taha"),
+                SizedBox(height: 10,),
                 Container(height: 4, color: Colors.grey.withValues(alpha: 0.6)),
               ],
             ),
@@ -132,7 +136,7 @@ AppBar customAppbar() {
 
       Padding(
         padding: const EdgeInsets.all(8.0),
-        child: Image.asset("assets/icons/messengerIcon.png"),
+        child: Image.asset("assets/icons/messengerIcon.png",),
       ),
     ],
   );
