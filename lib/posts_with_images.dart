@@ -1,18 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:practice_project/reacts_widget.dart';
+import 'package:practice_project/sale_item.dart';
 
-class Posts extends StatelessWidget {
+class PostsWithImages extends StatelessWidget {
   String name;
-  String time;
   String comments;
   String reacts;
   int? numOfReacts;
   String? imageURl;
 
-  Posts({
+  PostsWithImages({
     super.key,
     required this.name,
-    required this.time,
     required this.comments,
     required this.reacts,
     this.numOfReacts,
@@ -23,15 +22,31 @@ class Posts extends StatelessWidget {
   Widget build(BuildContext context) {
     return SizedBox(
       width: double.infinity,
-      height: 210,
+      height: 550,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          customRow(name: name, time: time),
+          customRow(name: name),
           SizedBox(
             child: Padding(
               padding: const EdgeInsets.only(left: 10.0, top: 5),
               child: Text("some text about anything written inside the post"),
+            ),
+          ),
+          Center(
+            child: SizedBox(
+              height: 350,
+              width: 350,
+              child: ListView(
+                scrollDirection: Axis.horizontal,
+                children: [
+                  SaleItem(),
+                  SizedBox(width: 10),
+                  SaleItem(),
+                  SizedBox(width: 10),
+                  SaleItem(),
+                ],
+              ),
             ),
           ),
           Expanded(
@@ -44,7 +59,6 @@ class Posts extends StatelessWidget {
                     top: 8.0,
                   ),
                   child: Reacts.overlappingReacts([
-                    "assets/icons/angryIcon.png",
                     "assets/icons/heartIcon.png",
                     "assets/icons/likeIcon.png",
                   ]),
@@ -78,30 +92,45 @@ class Posts extends StatelessWidget {
             children: [
               Row(
                 children: [
-                  Image.asset("assets/icons/like.png",scale: 2.5,color: Colors.grey,),
+                  Image.asset(
+                    "assets/icons/like.png",
+                    scale: 2.5,
+                    color: Colors.grey,
+                  ),
                   Padding(
                     padding: const EdgeInsets.all(8.0),
-                    child: Text("Like",style: TextStyle(color: Colors.grey),),
-                  )
+                    child: Text("Like", style: TextStyle(color: Colors.grey)),
+                  ),
                 ],
               ),
-              
+
               Row(
                 children: [
-                   Image.asset("assets/icons/comment.png",scale: 2.5,color: Colors.grey,),
+                  Image.asset(
+                    "assets/icons/comment.png",
+                    scale: 2.5,
+                    color: Colors.grey,
+                  ),
                   Padding(
                     padding: const EdgeInsets.all(8.0),
-                    child: Text("Comment",style: TextStyle(color: Colors.grey),),
-                  )
+                    child: Text(
+                      "Comment",
+                      style: TextStyle(color: Colors.grey),
+                    ),
+                  ),
                 ],
               ),
               Row(
                 children: [
-                  Image.asset("assets/icons/sendIcon.png",scale: 2,),
+                  Image.asset(
+                    "assets/icons/shareIcon.png",
+                    scale: 20,
+                    color: Colors.grey,
+                  ),
                   Padding(
                     padding: const EdgeInsets.all(8.0),
-                    child: Text("Send",style: TextStyle(color: Colors.grey),),
-                  )
+                    child: Text("Send", style: TextStyle(color: Colors.grey)),
+                  ),
                 ],
               ),
             ],
@@ -112,7 +141,7 @@ class Posts extends StatelessWidget {
   }
 }
 
-Row customRow({String? profileImage, String? name, String? time}) {
+Row customRow({String? profileImage, String? name}) {
   Row row = Row(
     children: [
       Padding(
@@ -128,22 +157,33 @@ Row customRow({String? profileImage, String? name, String? time}) {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text(
-              name!,
-              textAlign: TextAlign.left,
-              style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+            Row(
+              children: [
+                Text(
+                  name!,
+                  textAlign: TextAlign.left,
+                  style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                ),
+                Padding(
+                  padding: const EdgeInsets.all(6.0),
+                  child: Image.asset(
+                    "assets/icons/verifiedIcon.jpg",
+                    scale: 40,
+                  ),
+                ),
+              ],
             ),
             Row(
               children: [
                 Text(
-                  time!,
+                  "sponsored",
                   style: TextStyle(
                     fontSize: 14,
                     fontWeight: FontWeight.bold,
                     color: Colors.grey.withValues(alpha: 0.8),
                   ),
                 ),
-                Image.asset("assets/icons/friendsIcon.png", scale: 4),
+                Image.asset("assets/icons/globeIcon.jpg", scale: 19),
               ],
             ),
           ],

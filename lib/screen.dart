@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:practice_project/people_you_may_know.dart';
 import 'package:practice_project/posts.dart';
+import 'package:practice_project/posts_with_images.dart';
 import 'package:practice_project/stories_widgets.dart';
 
 class FacebookScreen extends StatelessWidget {
@@ -104,6 +106,11 @@ class FacebookScreen extends StatelessWidget {
                 Posts(comments: "45 comments", reacts: "6",time: "45m",name: "Yousef Taha"),
                 SizedBox(height: 10,),
                 Container(height: 4, color: Colors.grey.withValues(alpha: 0.6)),
+                PostsWithImages(name: "Asus",  comments: "200 comments", reacts: "101"),
+                SizedBox(height: 10,),
+                Container(height: 4, color: Colors.grey.withValues(alpha: 0.6)),
+                PeopleYouMayKnow(name: "People you may know"),
+
               ],
             ),
           ],
@@ -136,7 +143,7 @@ AppBar customAppbar() {
 
       Padding(
         padding: const EdgeInsets.all(8.0),
-        child: Image.asset("assets/icons/messengerIcon.png",),
+        child: Image.asset("assets/icons/chat.png",scale: 20,),
       ),
     ],
   );
